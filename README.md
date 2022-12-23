@@ -1,2 +1,11 @@
-js# JS
+
 # JS
+
+# План занятия
+
+- Switch
+- Цикл for
+- Задачи
+- Codewars
+- DOM
+

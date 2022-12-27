@@ -14,11 +14,11 @@ let total = 0;
 //   // total = total + cart[i];
 // }
 
-for (const value of cart) {
-  total += value;
-}
+// for (const value of cart) {
+//   total += value;
+// }
 
-console.log('Total: ', total);
+// console.log('Total: ', total);
 
 // Добавить такс
 
@@ -26,8 +26,12 @@ console.log('Total: ', total);
 //   cart[i] = Math.round(cart[i] * 1.1);
 // }
 
+for (let value of cart) {
+  value = Math.round(value * 1.1);
+  console.log(value);
+}
 // for (let value of cart) {
 //   value = Math.round(value * 1.1);
 // }
 
-// console.log(cart);
+console.log(cart);

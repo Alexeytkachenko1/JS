@@ -3,7 +3,44 @@
  */
 
 const numbers = [1, 5, 8, 9, 12, 4, 15, 27, 30, 18, 14];
-let total = 0;
+//Peremennaya
+let totalEven = 0;
+let totalOdd = 0;
+
+// Perebrat massiv
+// for (let i = 0; i < numbers.length; i += 1) {
+//   // console.log(numbers[i]);
+//   if (numbers[i] % 2 === 0) {
+//     totalEven += numbers[i];
+//   } else {
+//     totalOdd += numbers[i];
+//   }
+// }
+// console.log(totalEven);
+// console.log(totalOdd);
+
+// for (const number of numbers) {
+//   if (number % 2 === 0) {
+//     totalEven += number;
+//   } else {
+//     totalOdd += number;
+//   }
+// }
+// console.log(totalEven);
+// console.log(totalOdd);
+
+for (const number of numbers) {
+  if (number % 2 !== 0) {
+    console.log(`Etu operaciyu mojno propustit ${number}`);
+    continue;
+  }
+  console.log(`${number}-chetnoe`);
+  totalEven += number;
+}
+console.log(totalEven);
+// OPredelit na chetnost
+
+// Zapisat v summu
 
 // 1 переменная тотал
 
@@ -30,14 +67,14 @@ let total = 0;
 //   }
 // }
 
-for (const number of numbers) {
-  if (number % 2 !== 0) {
-    console.log('Эту итерацию нужно пропустить', number);
-    continue;
-  }
+// for (const number of numbers) {
+//   if (number % 2 !== 0) {
+//     console.log('Эту итерацию нужно пропустить', number);
+//     continue;
+//   }
 
-  console.log(`${number} - четное!!!!`);
-  total += number;
-}
+//   console.log(`${number} - четное!!!!`);
+//   total += number;
+// }
 
-console.log('Total: ', total);
+// console.log('Total: ', total);

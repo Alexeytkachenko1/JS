@@ -3,7 +3,8 @@
  * при условии что числа уникальные (не повторяются).
  */
 
-const numbers = [51, 18, 13, 24, 7, 85, 19];
+const numbers = [51, 18, 13, 24, 2, 7, 85, 19];
+
 let smallestNumber = numbers[0];
 
 for (const number of numbers) {
@@ -11,5 +12,13 @@ for (const number of numbers) {
     smallestNumber = number;
   }
 }
+console.log(smallestNumber);
+// let smallestNumber = numbers[0];
 
-console.log('smallestNumber: ', smallestNumber);
+// for (const number of numbers) {
+//   if (number < smallestNumber) {
+//     smallestNumber = number;
+//   }
+// }
+
+// console.log('smallestNumber: ', smallestNumber);

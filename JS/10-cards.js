@@ -6,15 +6,15 @@
  * - Обновить
  */
 
-const cards = [
-  'Карточка-1',
-  'Карточка-2',
-  'Карточка-3',
-  'Карточка-4',
-  'Карточка-5',
-];
+// const cards = [
+//   'Карточка-1',
+//   'Карточка-2',
+//   'Карточка-3',
+//   'Карточка-4',
+//   'Карточка-5',
+// ];
 
-console.table(cards);
+// console.table(cards);
 
 /*
  * Удаление (по индексу), метод indexOf()
@@ -40,6 +40,7 @@ console.table(cards);
 //*********************
 // const cardToInsert = 'Карточка-4';
 // const index = cardToInsert.length;
+// console.log(cardToInsert.length);
 // cards.splice(index, 1, cardToInsert);
 // console.table(cards);
 /*
@@ -54,10 +55,22 @@ console.table(cards);
 
 // console.table(cards);
 
-const cardToUpdate = 'Карточка-4';
-const index = cards.indexOf(cardToUpdate);
+// const cardToUpdate = 'Карточка-4';
+// const index = cards.indexOf(cardToUpdate);
 
-console.log(index);
+// console.log(index);
 
-cards.splice(index, 1, 'Обновленная карточка-4');
-console.table(cards);
+// cards.splice(index, 1, 'Обновленная карточка-4');
+// console.table(cards);
+
+// ++++++++++++++++++====ДОП++++++++++++++++++
+const str = 'struktura dannih dlya hraneniya';
+const words = str.split(' ');
+
+for (let i = 0; i < words.length; i += 1) {
+  const word = words[i];
+  const newWord = word[0].toUpperCase() + word.slice(1);
+  words[i] = newWord;
+}
+const newString = words.join(' ');
+console.log(newString);

@@ -16,12 +16,20 @@ const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
 //   return `Пользователь ${loginToFind} не найден.`;
 // };
 
+// const findLogin = function (allLogins, loginToFind) {
+//   return allLogins.includes(loginToFind)
+//     ? `Пользователь ${loginToFind} найден.`
+//     : `Пользователь ${loginToFind} не найден.`;
+// };
 const findLogin = function (allLogins, loginToFind) {
-  return allLogins.includes(loginToFind)
-    ? `Пользователь ${loginToFind} найден.`
-    : `Пользователь ${loginToFind} не найден.`;
+  // for (const login of allLogins) {
+  //   if (login === loginToFind) {
+  //     return 'Ura';
+  //   }
+  // }
+  // return 'ne ura';
+  return allLogins.includes(loginToFind) ? 'ura' : 'ne ura';
 };
-
 console.log(findLogin(logins, 'avocod3r'));
 console.log(findLogin(logins, 'k1widab3st'));
 console.log(findLogin(logins, 'jam4l'));

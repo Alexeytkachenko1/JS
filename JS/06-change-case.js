@@ -4,18 +4,30 @@
  * Например, если строка «JavaScript», то на выходе должена быть строка «jAVAsCRIPT».
  */
 
+// const changeCase = function (string) {
+//   const letters = string.split('');
+//   let invertedString = '';
+
+//   for (const letter of letters) {
+//     const isInLowerCase = letter === letter.toLowerCase();
+
+//     invertedString += isInLowerCase
+//       ? letter.toUpperCase()
+//       : letter.toLowerCase();
+//   }
+
+//   return invertedString;
+// };
 const changeCase = function (string) {
   const letters = string.split('');
   let invertedString = '';
-
   for (const letter of letters) {
-    const isInLowerCase = letter === letter.toLowerCase();
-
-    invertedString += isInLowerCase
-      ? letter.toUpperCase()
-      : letter.toLowerCase();
+    if (letter === letter.toLowerCase()) {
+      invertedString += letter.toUpperCase();
+    } else {
+      invertedString += letter.toLowerCase();
+    }
   }
-
   return invertedString;
 };
 

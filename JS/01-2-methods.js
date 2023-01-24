@@ -15,7 +15,6 @@ const playlist = {
   tracks: ['трек-1', 'трек-2', 'трек-3'],
   changeName(newName) {
     console.log('this внутри changeName: ', this);
-
     this.name = newName;
   },
   addTrack(track) {

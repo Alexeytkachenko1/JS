@@ -57,6 +57,7 @@ console.table(friends);
 //   for (const friend of allFriends) {
 //     console.log(friend);
 //     console.log(friend.online);
+
 //     if (friend.online) {
 //       onlineFriends.push(friend);
 //     }

@@ -26,21 +26,21 @@
 
 // showThis();
 
-const changeColor = function (color) {
-    console.log('changeColor -> this', this);
-    this.color = color;
-};
+// const changeColor = function (color) {
+//   console.log('changeColor -> this', this);
+//   this.color = color;
+// };
 
-const hat = {
-    color: 'black',
-};
+// const hat = {
+//   color: 'black',
+// };
 
 // changeColor.call(hat, 'orange');
 // console.log(hat);
 
-const sweater = {
-    color: 'green',
-};
+// const sweater = {
+//   color: 'green',
+// };
 
 // changeColor.call(sweater, 'blue');
 // console.log(sweater);
@@ -49,8 +49,8 @@ const sweater = {
  * bind
  */
 
-const changeHatColor = changeColor.bind(hat);
-const changeSweaterColor = changeColor.bind(sweater);
+// const changeHatColor = changeColor.bind(hat);
+// const changeSweaterColor = changeColor.bind(sweater);
 
 // changeHatColor('yellow');
 // console.log(hat);
@@ -63,22 +63,40 @@ const changeSweaterColor = changeColor.bind(sweater);
  */
 
 const counter = {
-    value: 0,
-    increment(value) {
-        console.log('increment -> this', this);
-        this.value += value;
-    },
-    decrement(value) {
-        console.log('decrement -> this', this);
-        this.value -= value;
-    },
+  value: 0,
+  increment(value) {
+    console.log('increment -> this', this);
+    this.value += value;
+  },
+  decrement(value) {
+    console.log('decrement -> this', this);
+    this.value -= value;
+  },
 };
 
 const updateCounter = function (value, operation) {
-    operation(value);
+  operation(value);
 };
 
 // updateCounter(10, counter.increment.bind(counter));
 // updateCounter(5, counter.decrement.bind(counter));
-
+updateCounter(10, counter.increment.bind(counter));
+console.log(counter);
+updateCounter(5, counter.decrement.bind(counter));
+console.log(counter);
 // console.log(counter);
+// const changeColor = function (color) {
+//   console.log('changeColor=>this', this);
+//   this.color = color;
+// };
+// const hat = {
+//   color: 'green',
+// };
+// // changeColor.call(hat, 'black');
+// // console.log(hat);
+
+// const sweater = {
+//   color: 'red',
+// };
+// // changeColor.call(sweater, 'blue');
+// // console.log(sweater);

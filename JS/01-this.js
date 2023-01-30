@@ -53,14 +53,14 @@
  */
 
 // const showTag = function () {
-//     console.log('showTag -> this', this);
-//     console.log('showTag -> this.tag', this.tag);
+//   console.log('showTag -> this', this);
+//   console.log('showTag -> this.tag', this.tag);
 // };
 
-// showTag();
+// // showTag();
 
 // const user = {
-//     tag: 'Mango',
+//   tag: 'Mango',
 // };
 
 // user.showUserTag = showTag;
@@ -73,11 +73,11 @@
  */
 
 // const user = {
-//     tag: 'Mango',
-//     showTag() {
-//         console.log('showTag -> this', this);
-//         console.log('showTag -> this.tag', this.tag);
-//     },
+//   tag: 'Mango',
+//   showTag() {
+//     console.log('showTag -> this', this);
+//     console.log('showTag -> this.tag', this.tag);
+//   },
 // };
 
 // user.showTag();
@@ -91,17 +91,17 @@
  */
 
 // const user = {
-//     tag: 'Mango',
-//     showTag() {
-//         console.log('showTag -> this', this);
-//         console.log('showTag -> this.tag', this.tag);
-//     },
+//   tag: 'Mango',
+//   showTag() {
+//     console.log('showTag -> this', this);
+//     console.log('showTag -> this.tag', this.tag);
+//   },
 // };
 
 // const invokeAction = function (action) {
-//     console.log(action);
+//   console.log(action);
 
-//     action();
+//   action();
 // };
 
 // invokeAction(user.showTag);
@@ -111,7 +111,7 @@
  */
 
 // const fn = function () {
-//     console.log('fn -> this', this);
+//   console.log('fn -> this', this);
 // };
 
 // fn(); // Какой this ???
@@ -121,13 +121,13 @@
  */
 
 // const book = {
-//     title: 'React for beginners',
-//     showThis() {
-//         console.log('showThis -> this', this);
-//     },
-//     showTitle() {
-//         console.log('showTitle -> this.title', this.title);
-//     },
+//   title: 'React for beginners',
+//   showThis() {
+//     console.log('showThis -> this', this);
+//   },
+//   showTitle() {
+//     console.log('showTitle -> this.title', this.title);
+//   },
 // };
 
 // book.showThis(); // Какой this ???
@@ -170,42 +170,111 @@
  */
 
 // const makeChangeColor = function () {
-//     const changeColor = function (color) {
-//         console.log('changeColor -> this', this);
-//     };
+//   const changeColor = function (color) {
+//     console.log('changeColor -> this', this);
+//   };
 
-//     return changeColor;
+//   return changeColor;
 // };
 
 // const updateColor = makeChangeColor();
 // updateColor('yellow'); // Какой this ???
 
 // const hat = {
-//     color: 'blue',
-//     updateColor: updateColor,
+//   color: 'blue',
+//   updateColor: updateColor,
 // };
 
 // hat.updateColor('orange'); // Какой this ???
+// console.log(hat);
 
 /*
  * Тренируемся 5
  */
 
-const counter = {
-    value: 0,
-    increment(value) {
-        console.log('increment -> this', this);
-        this.value += value;
-    },
-    decrement(value) {
-        console.log('decrement -> this', this);
-        this.value -= value;
-    },
-};
+// const counter = {
+//   value: 0,
+//   increment(value) {
+//     console.log('increment -> this', this);
+//     this.value += value;
+//   },
+//   decrement(value) {
+//     console.log('decrement -> this', this);
+//     this.value -= value;
+//   },
+// };
 
-const updateCounter = function (value, operation) {
-    operation(value);
-};
+// const updateCounter = function (value, operation) {
+//   operation(value);
+// };
 
-updateCounter(10, counter.increment);
-updateCounter(5, counter.decrement);
+// updateCounter(10, counter.increment.bind(counter));
+// console.log(counter);
+// updateCounter(5, counter.decrement.bind(counter));
+// console.log(counter);
+
+//
+'use strict';
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     console.log(`Adding ${itemName} to inventory`);
+
+//     this.items.push(itemName);
+//   },
+//   remove(itemName) {
+//     console.log(`Removing ${itemName} from inventory`);
+
+//     const newArr = [];
+//     for (const element of this.items) {
+//       if (element !== itemName) {
+//         newArr.push(element);
+//       }
+//     }
+//     this.items = newArr;
+//   },
+// };
+
+// const invokeInventoryAction = function (itemName, action) {
+// console.log(`Invoking action on ${itemName}`);
+//   action.call(inventory, itemName);
+// };
+
+const inventory = {
+  items: ['Knife', 'Gas mask'],
+  add(itemName) {
+    console.log(`Adding ${itemName} to inventory`);
+    this.items.push(itemName);
+  },
+  remove(itemName) {
+    console.log(`Removing ${itemName} from inventory`);
+    // this.items = this.items.filter(item => item !== itemName);
+    const newArr = [];
+    for (const element of this.items) {
+      if (element !== itemName) {
+        newArr.push(element);
+      }
+    }
+    this.items = newArr;
+  },
+};
+const invokeInventoryAction = function (itemName, action) {
+  console.log(`Invoking action on ${itemName}`);
+  action.call(this, itemName);
+};
+invokeInventoryAction.call(inventory, 'Medkit', inventory.add);
+console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+invokeInventoryAction.call(inventory, 'Gas mask', inventory.remove);
+// invokeInventoryAction.call(inventory, 'Medkit', inventory.add);
+// Invoking action on Medkit
+// Adding Medkit to inventory
+
+console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+// invokeInventoryAction.call(inventory, 'Gas mask', inventory.remove);
+// // Invoking action on Gas mask
+// // Removing Gas mask from inventory
+
+// console.log(inventory.items); // ['Knife', 'Medkit']

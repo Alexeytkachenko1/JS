@@ -7,13 +7,17 @@ const CounterPlugin = function ({
   this._value = initialValue;
   this._step = step;
   this._refs = this._getRefs(rootSelector);
-
   this.onUpdate = onUpdate;
-
   this._bindEvents();
   this.updateValueUI();
 };
 
+CounterPlugin.prototype.increment = function () {
+  this._value += this._step;
+};
+CounterPlugin.prototype.decrement = function () {
+  this._value -= this._step;
+};
 CounterPlugin.prototype._getRefs = function (rootSelector) {
   const refs = {};
   refs.container = document.querySelector(rootSelector);
@@ -23,33 +27,23 @@ CounterPlugin.prototype._getRefs = function (rootSelector) {
 
   return refs;
 };
-
 CounterPlugin.prototype._bindEvents = function () {
   this._refs.incrementBtn.addEventListener('click', () => {
-    console.log('CounterPlugin.prototype._bindEvents -> this', this);
+    console.log('CounterPlugin.prototype._bindEvents=>this', this);
     this.increment();
     this.updateValueUI();
+    2;
   });
-
   this._refs.decrementBtn.addEventListener('click', () => {
     console.log('CounterPlugin.prototype._bindEvents -> this', this);
     this.decrement();
     this.updateValueUI();
   });
 };
-
 CounterPlugin.prototype.updateValueUI = function () {
   this._refs.value.textContent = this._value;
 
   this.onUpdate();
-};
-
-CounterPlugin.prototype.increment = function () {
-  this._value += this._step;
-};
-
-CounterPlugin.prototype.decrement = function () {
-  this._value -= this._step;
 };
 
 new CounterPlugin({
@@ -58,5 +52,4 @@ new CounterPlugin({
   initialValue: 100,
   onUpdate: () => console.log('Это мой кастомный колбек для onUpdate'),
 });
-
 new CounterPlugin({ rootSelector: '#counter-2', step: 2 });

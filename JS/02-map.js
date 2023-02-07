@@ -1,15 +1,15 @@
-/*
- * Array.prototype.map()
- * - Поэлементо перебирает оригинальный массив
- * - Не изменяет оригинальный массив
- * - Возвращает новый массив такой же длины
- */
+// /*
+//  * Array.prototype.map()
+//  * - Поэлементо перебирает оригинальный массив
+//  * - Не изменяет оригинальный массив
+//  * - Возвращает новый массив такой же длины
+//  */
 
 const numbers = [5, 10, 15, 20, 25];
 
-const doubledNums = numbers.map(number => {
-  return number * 3;
-});
+// const doubledNums = numbers.map(number => {
+//   return number * 3;
+// });
 // console.log('numbers', numbers);
 // console.log('doubledNums', doubledNums);
 
@@ -22,16 +22,22 @@ const players = [
 ];
 console.table(players);
 
-/*
- * Получаем массив имён всех игроков
- */
+// /*
+//  * Получаем массив имён всех игроков
+//  */
 
-const playerNames = players.map(player => player.name);
-// console.log('playerNames', playerNames);
+// const playerNames = players.map(player => player.name);
+// // console.log('playerNames', playerNames);
 
-const playerIds = players.map(player => player.id);
-// console.log('playerIds', playerIds);
+// const playerIds = players.map(player => player.id);
+// // console.log('playerIds', playerIds);
 
+// const res = players.map(player => {
+//   return {
+//     name: player.name,
+//     online: player.online,
+//   };
+// });
 // const res = players.map(({ name, online }) => ({ name, online }));
 // console.log('res', res);
 
@@ -39,30 +45,38 @@ const playerIds = players.map(player => player.id);
  * Увеличиваем кол-во поинтов каждого игрока на 10%
  */
 
-const upatedPlayers = players.map(player => ({
-  ...player,
-  points: player.points * 1.1,
-}));
-
-// console.table(upatedPlayers);
-// console.log(upatedPlayers);
+// const upatedPlayers = players.map(player => ({
+//   ...player,
+//   points: player.points * 1.1,
+// }));
 
 /*
  * Увеличиваем кол-во часов игрока по id
  */
 
+// const playerIdToUpdate = 'player-3';
+
+// const updatedPlayers = players.map(player => {
+//   if (playerIdToUpdate === player.id) {
+//     return {
+//       ...player,
+//       timePlayed: player.timePlayed + 100,
+//     };
+//   }
+
+//   return player;
+// });
 const playerIdToUpdate = 'player-3';
-
-const updatedPlayers = players.map(player => {
-  if (playerIdToUpdate === player.id) {
-    return {
-      ...player,
-      timePlayed: player.timePlayed + 100,
-    };
-  }
-
-  return player;
-});
+const updatedPlayers = players.map(player =>
+  playerIdToUpdate === player.id
+    ? {
+        ...player,
+        timePlayed: player.timePlayed + 100,
+      }
+    : player,
+);
+console.log(updatedPlayers);
+console.table(updatedPlayers);
 
 // const updatedPlayers = players.map(player =>
 //   playerIdToUpdate === player.id

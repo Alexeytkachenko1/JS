@@ -6,8 +6,9 @@
 
 const numbers = [5, 10, 15, 20, 25];
 
+// const number = numbers.find(number => number === 10);
 const number = numbers.find(number => number === 10);
-// console.log(number);
+console.log(number);
 
 const players = [
   { id: 'player-1', name: 'Mango', timePlayed: 310, points: 54, online: false },
@@ -21,12 +22,13 @@ const players = [
  * Ищем игрока по id
  */
 const playerIdToFind = 'player-3';
-const playerWithId = players.find(({ id }) => id === playerIdToFind);
+// const playerWithId = players.find(({ id }) => id === playerIdToFind);
+
 // console.log(playerWithId);
 
-const finPlayerById = (allPlayer, playerId) => {
-  return allPlayer.find(({ id }) => id === playerId);
-};
+// const finPlayerById = (allPlayer, playerId) => {
+// return allPlayer.find(({ id }) => id === playerId);
+// };
 
 // console.log(finPlayerById(players, 'player-1'));
 // console.log(finPlayerById(players, 'player-4'));
@@ -35,5 +37,6 @@ const finPlayerById = (allPlayer, playerId) => {
  * Ищем игрока по имени
  */
 const playerNameToFind = 'Poly';
-const playerWithName = players.find(player => player.name === playerNameToFind);
-// console.log(playerWithName);
+// const playerWithName = players.find(player => player.name === playerNameToFind);
+const playerName = players.find(({ name }) => name === playerNameToFind);
+// console.log(playerName);

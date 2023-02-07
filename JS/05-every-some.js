@@ -12,6 +12,7 @@ const players = [
  * - Возвращает true если все элементы массива удовлетворяют условию
  */
 
+// const isAllOnline = players.every(player => player.online);
 const isAllOnline = players.every(player => player.online);
 // console.log('isAllOnline: ', isAllOnline);
 
@@ -20,8 +21,10 @@ const isAllOnline = players.every(player => player.online);
  * - Поэлементо перебирает оригинальный массив
  * - Возвращает true если хотя бы один элемент массива удовлетворяет условию
  */
+// const isAnyOnline = players.some(player => player.online);
 const isAnyOnline = players.some(player => player.online);
-console.log('isAnyOnline: ', isAnyOnline);
+// console.log('isAnyOnline: ', isAnyOnline);
 
-const anyHardcorePlayers = players.some(player => player.timePlayed > 400);
+// const anyHardcorePlayers = players.some(player => player.timePlayed > 400);
+const anyHardcorePlayers = players.some(player => player.timePlayed > 450);
 console.log('anyHardcorePlayers: ', anyHardcorePlayers);

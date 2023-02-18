@@ -34,4 +34,5 @@ heroTitleEl.textContent = 'Я сладкий пирожочек!';
  */
 const actions = document.querySelectorAll('.js-actions button');
 console.log(actions);
+// console.log(actions[2].dataset.action);
 console.log(actions[2].dataset.action);

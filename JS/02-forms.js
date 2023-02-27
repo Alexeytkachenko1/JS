@@ -7,17 +7,36 @@
 
 const form = document.querySelector('.js-register-form');
 
-form.addEventListener('submit', onFormSubmit);
+// form.addEventListener('submit', onFormSubmit);
 
+// function onFormSubmit(event) {
+//   event.preventDefault();
+//   const formElement = event.currentTarget.elements;
+//   const mail = formElement.email.value;
+//   const password = formElement.password.value;
+
+//   console.log(mail, password);
+// const formData = new FormData(event.currentTarget);
+
+// console.log(formData);
+
+// formData.forEach((value, name) => {
+//   console.log('onFormSubmit -> name', name);
+//   console.log('onFormSubmit -> value', value);
+// });
+// }
+form.addEventListener('submit', onFormSubmit);
 function onFormSubmit(event) {
   event.preventDefault();
 
+  // const formElement = event.currentTarget.elements;
+  // const mail = formElement.email.value;
+  // const password = formElement.password.value;
+
   const formData = new FormData(event.currentTarget);
-
-  console.log(formData);
-
   formData.forEach((value, name) => {
-    console.log('onFormSubmit -> name', name);
-    console.log('onFormSubmit -> value', value);
+    console.log(`name:${name}`);
+
+    console.log(`value:${value}`);
   });
 }

@@ -27,7 +27,7 @@ const removeListenerBtn = document.querySelector('.js-remove-listener');
 //
 //
 //
-addListenerBtn.addEventListener('click', event => {
+addListenerBtn.toggleAttribute('click', event => {
   console.log(event);
   console.log('Вешаю слушателя события на целевую кнопку');
   targetBtn.addEventListener('click', onTargetBtnClick);

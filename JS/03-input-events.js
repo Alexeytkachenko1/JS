@@ -31,9 +31,12 @@ function onInputBlur() {
 }
 
 function onInputChange(event) {
+  console.log(event.currentTarget.value);
   refs.nameLabel.textContent = event.currentTarget.value;
 }
 
 function onLicenseChange(event) {
+  // refs.btn.disabled = !event.currentTarget.checked;
   refs.btn.disabled = !event.currentTarget.checked;
+  console.log(`refs.btn.disabled:${refs.btn.enabled}`);
 }

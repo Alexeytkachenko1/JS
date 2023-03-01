@@ -9,9 +9,6 @@
 
 const boxRef = document.querySelector('.js-box');
 
-// boxRef.addEventListener('mouseover', onMouseEnter);
-// boxRef.addEventListener('mouseout', onMouseLeave);
-// boxRef.addEventListener('mousemove', onMouseMove);
 boxRef.addEventListener('mouseenter', onMouseEnter);
 boxRef.addEventListener('mouseleave', onMouseLeave);
 boxRef.addEventListener('mousemove', onMouseMove);

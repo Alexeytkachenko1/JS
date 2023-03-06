@@ -15,18 +15,23 @@ refs.child.addEventListener('click', onChildClick);
 refs.innerChild.addEventListener('click', onInnerChildClick);
 
 function onParentClick(evt) {
+  console.log('===============');
   console.log('onParentClick');
   console.log('onParentClick -> evt.target', evt.target);
   console.log('onParentClick -> evt.currentTarget', evt.currentTarget);
 }
 
 function onChildClick(evt) {
+  console.log('===============');
+
   console.log('onChildClick');
   console.log('onChildClick -> evt.target', evt.target);
   console.log('onChildClick -> evt.currentTarget', evt.currentTarget);
 }
 
 function onInnerChildClick(evt) {
+  console.log('===============');
+
   console.log('onInnerChildClick');
   console.log('onInnerChildClick -> evt.target', evt.target);
   console.log('onInnerChildClick -> evt.currentTarget', evt.currentTarget);

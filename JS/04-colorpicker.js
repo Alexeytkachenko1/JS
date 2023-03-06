@@ -15,87 +15,78 @@ const colors = [
 ];
 
 const paletteContainer = document.querySelector('.js-palette');
-
 const cardsMarkup = createColorCardsMarkup(colors);
-
+console.log(cardsMarkup);
 paletteContainer.insertAdjacentHTML('beforeend', cardsMarkup);
-
-paletteContainer.addEventListener('click', onPaletteContainerClick);
-
 function createColorCardsMarkup(colors) {
   return colors
     .map(({ hex, rgb }) => {
-      return `
-    <div class="color-card">
-     <div><div><div> <div
-     class="color-swatch"
-     data-hex="${hex}"
-     data-rgb="${rgb}"
-     style="background-color: ${hex}"
-   ></div></div></div></div>
-      <div class="color-meta">
-        <p>HEX: ${hex}</p>
-        <p>RGB: ${rgb}</p>
-      </div>
+      return ` 
+      <div class="color-card">
+    <div>
+    <div>
+    <div>
+<div class="color-swatch" data-hex="${hex}"
+data-rgb="rgba:${rgb}"
+ style="background-color:rgb(${rgb})"></div>
     </div>
+  </div>
+  </div>
+  <div class="color-meta">
+    <p>HEX: ${hex}</p>
+    <p>RGB:${rgb}</p>
+  </div> 
+  </div>
     `;
     })
     .join('');
 }
-function onPaletteContainerClick(evt) {
-  const isColorSwatchEl = evt.target.classList.contains('color-swatch');
+paletteContainer.addEventListener('click', onPaletteContainerClick);
+
+function onPaletteContainerClick(event) {
+  const isColorSwatchEl = event.target.classList.contains('color-swatch');
   if (!isColorSwatchEl) {
     return;
   }
-
-  const swatchEl = evt.target;
-  // const parentColorCard = swatchEl.parentNode;
-  const parentColorCard = swatchEl.closest('.color-card');
-  removeActiveCardClass();
-  addActiveCardClass(parentColorCard);
-  setBodyBgColor(evt.target.dataset.hex);
-}
-
-function setBodyBgColor(color) {
-  document.body.style.backgroundColor = color;
-}
-function removeActiveCardClass() {
-  const currentActiveCard = document.querySelector('.color-card.is-active');
-
-  if (currentActiveCard) {
-    currentActiveCard.classList.remove('is-active');
+  console.log(event.target.dataset.rgb);
+  document.body.style.backgroundColor = event.target.dataset.hex;
+  const parentColorCard = event.target.closest('.color-card');
+  const isActiveCard = document.querySelector('.color-card.is-active');
+  if (isActiveCard) {
+    isActiveCard.classList.remove('is-active');
   }
-}
-function addActiveCardClass(card) {
-  card.classList.add('is-active');
-}
-// function onPaletteContainerClick(evt) {
-//   const isColorSwatchEl = evt.target.classList.contains('color-swatch');
 
+  parentColorCard.classList.add('is-active');
+  console.log(event.target);
+}
+// function onPaletteContainerClick(event) {
+//   const isColorSwatchEl = event.target.classList.contains('color-swatch');
 //   if (!isColorSwatchEl) {
 //     return;
 //   }
 
-//   const swatchEl = evt.target;
+//   const swatchEl = event.target;
+
 //   const parentColorCard = swatchEl.closest('.color-card');
+//   console.log(event.target.dataset.hex);
 
+//   setBodyBgColor(event.target.dataset.hex);
 //   removeActiveCardClass();
-//   addActiveCardClass(parentColorCard);
-//   setBodyBgColor(swatchEl.dataset.hex);
-// }
 
+//   addActiveCardClass(parentColorCard);
+// }
 // function setBodyBgColor(color) {
 //   document.body.style.backgroundColor = color;
 // }
-
-// function removeActiveCardClass() {
-//   const currentActiveCard = document.querySelector('.color-card.is-active');
-
-//   if (currentActiveCard) {
-//     currentActiveCard.classList.remove('is-active');
-//   }
-// }
-
 // function addActiveCardClass(card) {
+//   if (card.classList.contains('is-active')) {
+//     return;
+//   }
 //   card.classList.add('is-active');
+// }
+// function removeActiveCardClass() {
+//   const activeColorCard = document.querySelector('.color-card.is-active');
+//   if (activeColorCard) {
+//     activeColorCard.classList.remove('is-active');
+//   }
 // }
